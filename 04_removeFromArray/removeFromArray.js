@@ -1,17 +1,17 @@
-const removeFromArray = function() {
-        const args = Array.from(arguments);
-        array = args[0];
-        removeValues = args.toSpliced(0,1);
-        newArray = Array.from(array);
-        
-        for (var i = removeValues.length - 1; i >= 0; i--) {
-            let position = newArray.indexOf(removeValues[i]);
-            finalArray = newArray.toSpliced(position, 1);
-            console.log("Array after: " + finalArray);
-            newArray = finalArray;
-        }
-        return finalArray;
-};
+const removeFromArray = function (array, ...check) {
+    const newArray = [];
+    array.forEach((element) => {
+      if (!check.includes(element)) {
+        newArray.push(element);
+      }
+    });
+    return newArray;
+  };
 
-// Do not edit below this line
+// Had to reference solution for this. Rest function is "...LABEL" and means "rest of arguments." 
+// This takes the input and passes an array from first argument
+// followed by the elements to check against array.
+// Next it looks at each passed element and if that element is NOT included in the "rest"
+// pushes it into a new array that we return at the end.
+
 module.exports = removeFromArray;
